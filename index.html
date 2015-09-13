@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MarkedArea example</title>
+    <title>React-Markdown-Area</title>
 </head>
 <body>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css"/>
@@ -11,25 +11,33 @@
 <script src="js/markedarea.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.13.2/JSXTransformer.js"></script>
 
+<code style="position:fixed;">npm install react-markdown-area</code>
+
 <div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-react-markdown-area" class="anchor" href="#react-markdown-area" aria-hidden="true"><span class="octicon octicon-link"></span></a>React-Markdown-Area</h1>
+    <header>
+        <iframe src="https://ghbtns.com/github-btn.html?user=mattmcfarland&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="220px" height="30px"></iframe>
+
+        <div style="float:right">
+            <iframe src="https://ghbtns.com/github-btn.html?user=mattmcfarland&repo=react-markdown-area&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+            <iframe src="https://ghbtns.com/github-btn.html?user=mattmcfarland&repo=react-markdown-area&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+        </div>
+    </header>
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-react-markdown-area" class="anchor" href="#react-markdown-area" aria-hidden="true"><span class="fa fa-link"></span></a>React-Markdown-Area <small>&nbsp;AKA MarkedArea</small></h1>
 
         <p>An enhanced textarea control built with and for <a href="http://facebook.github.io/react/index.html">React</a>. Initially built for use in tuts-wanted.</p>
 
-        <h2><a id="user-content-demo--examples" class="anchor" href="#demo--examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo &amp; Examples</h2>
-<pre><code><xmp><MarkedArea/></xmp></code></pre>
-        <p>Live demo:</p>
+        <h2><a id="user-content-demo--examples" class="anchor" href="#demo--examples" aria-hidden="true"><span class="fa fa-link"></span></a>Demo &amp; Examples</h2>
         <section id="example"></section>
-
+        <pre><code><xmp><MarkedArea/></xmp></code></pre>
         <p>To build the examples locally, run:</p>
 
 <pre><code>npm install
 npm start
 </code></pre>
 
-        <p>Then open <a href="http://localhost:8000"><code>localhost:8000</code></a> in a browser.</p>
+        <p>Then open <code>localhost:8000</code> in a browser.</p>
 
-        <h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+        <h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="fa fa-link"></span></a>Installation</h2>
 
         <p>The easiest way to use React--Markdown-Area is to install it from NPM and include it in your own React build process (using <a href="http://browserify.org">Browserify</a>, etc).</p>
 
@@ -38,7 +46,7 @@ npm start
 
         <p>You can also use the standalone build by including <code>dist/markedarea.js</code> in your page. The standalone build contains all the dependencies, so for less bloat its better to use NPM.</p>
 
-        <h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+        <h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="fa fa-link"></span></a>Usage</h2>
 
         <p>React-Markdown-Area generates two buttons for switching between live and edit mode, a textarea, and a preview pane.
             The bundled package comes with a minimal and namespaced amount of CSS.  You can change the classnames of each element in use by modifying the <code>classNames</code> prop.</p>
@@ -50,7 +58,7 @@ npm start
 
 </code></pre>
 
-        <h3><a id="user-content-props" class="anchor" href="#props" aria-hidden="true"><span class="octicon octicon-link"></span></a>Props</h3>
+        <h3><a id="user-content-props" class="anchor" href="#props" aria-hidden="true"><span class="fa fa-link"></span></a>Props</h3>
 
         <table><thead>
         <tr>
@@ -96,7 +104,7 @@ npm start
         </tr>
         </tbody></table>
 
-        <h3><a id="user-content-propsclassnames" class="anchor" href="#propsclassnames" aria-hidden="true"><span class="octicon octicon-link"></span></a>props.classNames</h3>
+        <h3><a id="user-content-propsclassnames" class="anchor" href="#propsclassnames" aria-hidden="true"><span class="fa fa-link"></span></a>props.classNames</h3>
 
         <table><thead>
         <tr>
@@ -137,7 +145,7 @@ npm start
         </tr>
         </tbody></table>
 
-        <h2><a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+        <h2><a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="fa fa-link"></span></a>License</h2>
 
         <p>BSD Licensed. Copyright (c) Matt McFarland 2015.</p>
     </article>
@@ -148,5 +156,7 @@ npm start
             <MarkedArea/>, document.getElementById('example')
         );
     </script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </body>
 </html>
