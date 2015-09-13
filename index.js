@@ -11,10 +11,23 @@ export default class MarkedArea extends React.Component {
   }
   static displayName = 'MarkedArea';
   static propTypes = {
+    id: React.PropTypes.string,
+    label: React.PropTypes.string,
+    classNames: React.PropTypes.object,
     onChange: React.PropTypes.func
   };
   static defaultProps = {
-    onChange: this._onChange
+    id: "mmc-marked-area",
+    label: "",
+    onChange: this._onChange,
+    classNames: {
+      root: "marked-area",
+      header: "marked-area-header",
+      activeButton: "marked-area-button active",
+      defaultButton: "marked-area-button",
+      helpLink: "marked-area-help-link",
+      textContainer: "marked-area-text-container"
+    }
   };
 
   get parsed () {
@@ -43,35 +56,36 @@ export default class MarkedArea extends React.Component {
 
   render () {
     return (
-      <div className="marked-area">
-        <header className="marked-area-controls">
+      <div className={this.props.classNames.root}>
+        <header className={this.props.classNames.header}>
           <label htmlFor={this.props.id}>{this.props.label}</label>
-          <menu className="marked-area-toolbar btn-group">
+          <menu>
             <button
-              className={this.state.isPreview ? "btn btn-default" : "btn btn-primary"}
+              className={this.state.isPreview ? this.props.classNames.defaultButton : this.props.classNames.activeButton }
               onClick={this.disablePreview}
               >
-              <Glyph opacity={0.6} icon="edit"/>&nbsp;
-              <span className="marked-area-toolbar-button-label">Edit</span>
+              <span>Edit</span>
             </button>
             <button
-              className={this.state.isPreview ? "btn btn-primary" : "btn btn-default"}
+              className={this.state.isPreview ? this.props.classNames.activeButton : this.props.classNames.defaultButton }
               onClick={this.enablePreview}
-              data-action="preview">
-              <Glyph icon="preview"/>
-              <span className="marked-area-toolbar-button-label">Preview</span>
+              >
+              <span>Preview</span>
             </button>
             <a
               target="_blank"
-              className="btn btn-link"
               href="//help.github.com/articles/github-flavored-markdown/"
               title="learn more about github flavored markdown"
+              className={this.props.classNames.helpLink}
               >
-              Help&nbsp;<Glyph size="10px" icon="new-window"/>
+              <span>Help</span>
             </a>
           </menu>
         </header>
-        {this.state.isPreview ? this.parsed : this.raw}
+        <div className={this.props.classNames.textContainer}>
+          {this.state.isPreview ? this.parsed : this.raw}
+        </div>
+        {this.props.children}
       </div>
     )
   }
