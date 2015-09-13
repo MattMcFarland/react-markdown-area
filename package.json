@@ -4,6 +4,9 @@
   "description": "A lightweight enhanced textarea with markdown support / preview",
   "main": "index.js",
   "browser": "dist",
+  "engines" : {
+    "node" : ">=4.0.0"
+  },
   "files": [
     "README.md",
     "index.js",
