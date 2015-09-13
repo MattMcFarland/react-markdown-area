@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>React-markdown-area by MattMcFarland</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">React-markdown-area</h1>
+      <h2 class="project-tagline">An enhanced textarea with markdown support and live preview</h2>
+      <a href="https://github.com/MattMcFarland/react-markdown-area" class="btn">View on GitHub</a>
+      <a href="https://github.com/MattMcFarland/react-markdown-area/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/MattMcFarland/react-markdown-area/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="react-markdown-area" class="anchor" href="#react-markdown-area" aria-hidden="true"><span class="octicon octicon-link"></span></a>React-Markdown-Area</h1>
+
+<p>An enhanced textarea control built with and for <a href="http://facebook.github.io/react/index.html">React</a>. Initially built for use in tuts-wanted.</p>
+
+<h2>
+<a id="demo--examples" class="anchor" href="#demo--examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo &amp; Examples</h2>
+
+<p>Live demo: <a href="./examples">styleguide</a></p>
+
+<p>To build the examples locally, run:</p>
+
+<pre><code>npm install
+npm start
+</code></pre>
+
+<p>Then open <a href="http://localhost:8000"><code>localhost:8000</code></a> in a browser.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>The easiest way to use React--Markdown-Area is to install it from NPM and include it in your own React build process (using <a href="http://browserify.org">Browserify</a>, etc).</p>
+
+<pre><code>npm install react-markdown-area --save
+</code></pre>
+
+<p>You can also use the standalone build by including <code>dist/markedarea.js</code> in your page. The standalone build contains all the dependencies, so for less bloat its better to use NPM.</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>React-Markdown-Area generates two buttons for switching between live and edit mode, a textarea, and a preview pane.
+The bundled package comes with a minimal and namespaced amount of CSS.  You can change the classnames of each element in use by modifying the <code>classNames</code> prop.</p>
+
+<pre><code>var MarkedArea = require('react-markdown-area');
+// Or import {MarkedArea} from 'react-markdown-area';
+
+&lt;MarkedArea label="Enter your markdown text" placeholder="Type in here"/&gt;
+
+</code></pre>
+
+<h3>
+<a id="props" class="anchor" href="#props" aria-hidden="true"><span class="octicon octicon-link"></span></a>Props</h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">label</td>
+<td align="left">string</td>
+<td align="left">text displayed in the <code>label</code> tag, default is an empty string.</td>
+</tr>
+<tr>
+<td align="left">id</td>
+<td align="left">string</td>
+<td align="left">unique DOM element ID, default is <code>mmc-marked-area</code>
+</td>
+</tr>
+<tr>
+<td align="left">onChange</td>
+<td align="left">string</td>
+<td align="left">function called on change, default is an internal function that updates state.</td>
+</tr>
+<tr>
+<td align="left">defaultValue</td>
+<td align="left">string</td>
+<td align="left">starting value, works similar to defaultValue for textarea</td>
+</tr>
+<tr>
+<td align="left">value</td>
+<td align="left">string</td>
+<td align="left">value, works similar to any other form element value. default is <code>state.value</code>
+</td>
+</tr>
+<tr>
+<td align="left">classNames</td>
+<td align="left">object</td>
+<td align="left">classnames used for each element (see below)</td>
+</tr>
+<tr>
+<td align="left">{...props}</td>
+<td align="left">object</td>
+<td align="left">All props are passed into the <code>textarea</code> and <code>preview</code> to give you more control.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="propsclassnames" class="anchor" href="#propsclassnames" aria-hidden="true"><span class="octicon octicon-link"></span></a>props.classNames</h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">ClassNames</th>
+<th align="left">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">root</td>
+<td align="left">marked-area</td>
+<td align="left">The top-level wrapping element.</td>
+</tr>
+<tr>
+<td align="left">header</td>
+<td align="left">marked-area-header</td>
+<td align="left">The element that wraps the controls</td>
+</tr>
+<tr>
+<td align="left">activeButton</td>
+<td align="left">marked-area-button.active</td>
+<td align="left">Class used to indicate the active tab</td>
+</tr>
+<tr>
+<td align="left">defaultButton</td>
+<td align="left">marked-area-button</td>
+<td align="left">Class used to indicate the inactive tab</td>
+</tr>
+<tr>
+<td align="left">helpLink</td>
+<td align="left">marked-area-help-link</td>
+<td align="left">Class used for the help link</td>
+</tr>
+<tr>
+<td align="left">textContainer</td>
+<td align="left">marked-area-text-container</td>
+<td align="left">Element that wraps the textarea or the preview.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>BSD Licensed. Copyright (c) Matt McFarland 2015.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/MattMcFarland/react-markdown-area">React-markdown-area</a> is maintained by <a href="https://github.com/MattMcFarland">MattMcFarland</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
