@@ -37,9 +37,18 @@ tr,td,th {
     overflow: auto;
     font-size: 85%;
     line-height: 1.45;
-    background-color: #f7f7f7;
+    background-color: #476F6D;
     border-radius: 3px;
+    color: #F7FFCC;
 }
+code {
+    color: #38A29D;
+}
+
+pre > code {
+    color: #F7FFCC;
+}
+
 
 body {
     font-family: Helvetica, arial, sans-serif;
