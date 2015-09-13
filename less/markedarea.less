@@ -1,0 +1,41 @@
+.marked-area {
+  border: thin solid #bababa;
+  display: block;
+  .marked-area-header {
+    > label {
+      display: block;
+    }
+    menu {
+      padding: 1em 0.5em;
+      margin: 0;
+      display: block;
+      background: #efefef;
+      border-bottom: thin solid #bababa;
+    }
+  }
+  .marked-area-button {
+    font-size:16px;
+    line-height:20px;
+    border-radius:0;
+    border: thin solid grey;
+    background-color:white;
+    &.active {
+      color:white;
+      background-color:grey;
+    }
+  }
+  .marked-area-help-link {
+    margin-left: 1em;
+  }
+  .marked-area-text-container {
+    > textarea, > div {
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      border: 0;
+      min-height: 160px;
+      padding: 1em;
+      margin: 0;
+    }
+  }
+}

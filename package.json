@@ -2,8 +2,6 @@
   "name": "react-markdown-area",
   "version": "0.0.1",
   "description": "A lightweight enhanced textarea with markdown support / preview",
-  "main": "index.js",
-  "browser": "dist",
   "engines": {
     "node": ">=4.0.0"
   },
@@ -11,19 +9,21 @@
     "README.md",
     "index.js",
     "examples",
+    "styleguide",
     "dist/",
     "lib/",
     "less"
   ],
   "browserify": {
-    "transforms": [
-      "babelify",
+    "transform": [
+      ["babelify", { "stage": 0, "optional": ["es7.asyncFunctions"] }],
       "lessify"
     ]
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gulp"
+    "start": "gulp",
+    "build": "gulp less bundle && gulp styleguide"
   },
   "repository": {
     "type": "git",
@@ -43,13 +43,18 @@
   "author": "Matt McFarland",
   "license": "BSD-2-Clause",
   "devDependencies": {
+    "babelify": "^6.3.0",
     "browserify": "^11.1.0",
     "gulp": "^3.9.0",
     "gulp-less": "^3.0.3",
     "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.6",
     "gulp-webserver": "^0.9.1",
+    "lessify": "^1.0.1",
     "marked": "^0.3.5",
     "react": "^0.13.3",
-    "react-styleguide-generator": "^1.1.5"
+    "react-styleguide-generator": "^1.1.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   }
 }

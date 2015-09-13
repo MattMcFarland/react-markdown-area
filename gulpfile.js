@@ -2,26 +2,30 @@
 
 /* Module Dependencies */
 const
+  browserify  = require('browserify'),
   gulp        = require('gulp'),
+  source      = require('vinyl-source-stream'),
+  buffer      = require('vinyl-buffer'),
+  gutil       = require('gulp-util'),
   less        = require('gulp-less'),
   path        = require('path'),
   rename      = require('gulp-rename'),
   webserver   = require('gulp-webserver'),
-  RSG         = require('react-styleguide-generator'),
-  browserify  = require('browserify');
+  RSG         = require('react-styleguide-generator');
+
 
 gulp.task('less', () => {
   return gulp.src('less/markedarea.less')
     .pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('./dist'));
 });
 
 
 gulp.task('styleguide', (done) => {
-  const rsg = RSG('index.js', {
-    output: './examples/styleguide'
+  const rsg = RSG('./lib/markedarea.js', {
+    output: './examples'
   });
   rsg.generate(function (err) {
     if (err) {
@@ -33,12 +37,15 @@ gulp.task('styleguide', (done) => {
 
 
 gulp.task('bundle', () => {
-  gulp.src('index.js')
-    .pipe(browserify({
-      insertGlobals : true,
-      debug : !gulp.env.production
-    }))
-    .pipe(gulp.dest('./dist'))
+  var b = browserify({
+    entries: './',
+    debug: true
+  });
+  return b.bundle()
+    .on('error', gutil.log)
+    .pipe(source('markedarea.js'))
+    .pipe(buffer())
+    .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('webserver', () => {
@@ -48,7 +55,5 @@ gulp.task('webserver', () => {
       open: true
     }))
 });
-
-gulp.task('build', ['less', 'bundle', 'styleguide', 'webserver']);
 
 gulp.task('default', ['webserver']);
