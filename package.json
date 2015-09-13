@@ -1,6 +1,6 @@
 {
   "name": "react-markdown-area",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A lightweight enhanced textarea with markdown support / preview",
   "engines": {
     "node": ">=4.0.0"
@@ -50,8 +50,7 @@
     "live",
     "editor",
     "gfm",
-    "react",
-    "component"
+    "react-component"
   ],
   "license": "BSD-2-Clause",
   "devDependencies": {
