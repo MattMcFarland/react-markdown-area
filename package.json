@@ -1,6 +1,6 @@
 {
   "name": "react-markdown-area",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A lightweight enhanced textarea with markdown support / preview",
   "engines": {
     "node": ">=4.0.0"
@@ -35,7 +35,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "github.com/MattMcFarland/react-markdown-area.git"
+    "url": "git+https://github.com/MattMcFarland/react-markdown-area"
+  },
+  "author": {
+    "name": "Matt McFarland",
+    "email": "contact@mattmcfarland.com.com",
+    "url": "http://mattmcfarland.github.io/react-markdown-area/"
   },
   "keywords": [
     "markdown",
@@ -48,7 +53,6 @@
     "react",
     "component"
   ],
-  "author": "Matt McFarland",
   "license": "BSD-2-Clause",
   "devDependencies": {
     "babelify": "^6.3.0",
