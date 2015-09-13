@@ -4,7 +4,7 @@ An enhanced textarea control built with and for [React](http://facebook.github.i
 
 ## Demo & Examples
 
-Live demo: [jedwatson.github.io/react-select](http://jedwatson.github.io/react-select/)
+Live demo: [mattmcfarland.github.io/react-markdown-area]( http://mattmcfarland.github.io/react-markdown-area/examples)
 
 To build the examples locally, run:
 
