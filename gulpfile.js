@@ -25,7 +25,7 @@ gulp.task('less', () => {
 
 gulp.task('styleguide', (done) => {
   const rsg = RSG('./lib/markedarea.js', {
-    output: './examples'
+    output: './styleguide'
   });
   rsg.generate(function (err) {
     if (err) {
@@ -38,7 +38,7 @@ gulp.task('styleguide', (done) => {
 
 gulp.task('bundle', () => {
   var b = browserify({
-    entries: './',
+    entries: './eindex.js',
     debug: true
   });
   return b.bundle()
@@ -49,7 +49,7 @@ gulp.task('bundle', () => {
 });
 
 gulp.task('webserver', () => {
-  gulp.src('examples')
+  gulp.src('examples/basic')
     .pipe(webserver({
       livereload: true,
       open: true
