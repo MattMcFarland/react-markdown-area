@@ -1,0 +1,10 @@
+{
+  "title": "React-Markedown-Area styleguide",
+  "files": [
+    "dist/markedarea.css",
+    "dist/markedarea.js"
+  ],
+  "babelConfig": {
+    "stage": 0
+  }
+}

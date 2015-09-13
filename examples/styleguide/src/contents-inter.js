@@ -1,0 +1,1 @@
+module.exports = [require('/Users/mmcfarland/WebstormProjects/react-markdown-area/index.js')]

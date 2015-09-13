@@ -2,13 +2,13 @@
 
 /* Module Dependencies */
 const
-  gulp      = require('gulp'),
-  less      = require('gulp-less'),
-  path      = require('path'),
-  rename    = require('gulp-rename'),
-  webserver = require('gulp-webserver'),
-  RSG       = require('react-styleguide-generator');
-
+  gulp        = require('gulp'),
+  less        = require('gulp-less'),
+  path        = require('path'),
+  rename      = require('gulp-rename'),
+  webserver   = require('gulp-webserver'),
+  RSG         = require('react-styleguide-generator'),
+  browserify  = require('browserify');
 
 gulp.task('less', () => {
   return gulp.src('less/markedarea.less')
@@ -49,6 +49,6 @@ gulp.task('webserver', () => {
     }))
 });
 
-gulp.task('build', ['less', 'styleguide', 'bundle', 'webserver']);
+gulp.task('build', ['less', 'bundle', 'styleguide', 'webserver']);
 
 gulp.task('default', ['webserver']);

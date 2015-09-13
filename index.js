@@ -1,6 +1,8 @@
 import React from 'react';
 import marked from 'marked';
-
+/**
+ * Marked Area - TextArea with Markdown support and preview.
+ */
 export default class MarkedArea extends React.Component {
   constructor(props) {
     super(props);
@@ -28,6 +30,18 @@ export default class MarkedArea extends React.Component {
       helpLink: "marked-area-help-link",
       textContainer: "marked-area-text-container"
     }
+  };
+  static styleguide = {
+    // Component to use for generating additional examples
+    exampleComponent: MarkedAreaDoc,
+    // Array of additional example tabs
+    index: '2.2',
+    category: 'Forms',
+    title: 'MarkedArea',
+    description: 'A Markdown textarea editor with preview',
+    code: `
+    <MarkedArea label="Textarea with markdown preview:" placeholder="enter your text" id="myMarkedArea"/>
+    `
   };
 
   get parsed () {

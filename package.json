@@ -43,13 +43,13 @@
   "author": "Matt McFarland",
   "license": "BSD-2-Clause",
   "devDependencies": {
+    "browserify": "^11.1.0",
     "gulp": "^3.9.0",
     "gulp-less": "^3.0.3",
-    "less": "^2.5.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-webserver": "^0.9.1",
     "marked": "^0.3.5",
     "react": "^0.13.3",
-    "react-styleguide-generator": "^1.1.5",
-    "rename": "^1.0.3",
-    "webserver": "^1.1.2"
+    "react-styleguide-generator": "^1.1.5"
   }
 }
