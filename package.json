@@ -1,6 +1,6 @@
 {
   "name": "react-markdown-area",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A lightweight enhanced textarea with markdown support / preview",
   "engines": {
     "node": ">=4.0.0"
@@ -16,7 +16,15 @@
   ],
   "browserify": {
     "transform": [
-      ["babelify", { "stage": 0, "optional": ["es7.asyncFunctions"] }],
+      [
+        "babelify",
+        {
+          "stage": 0,
+          "optional": [
+            "es7.asyncFunctions"
+          ]
+        }
+      ],
       "lessify"
     ]
   },
@@ -50,11 +58,13 @@
     "gulp-rename": "^1.2.2",
     "gulp-util": "^3.0.6",
     "gulp-webserver": "^0.9.1",
-    "lessify": "^1.0.1",
-    "marked": "^0.3.5",
-    "react": "^0.13.3",
     "react-styleguide-generator": "^1.1.5",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "marked": "^0.3.5",
+    "lessify": "^1.0.1",
+    "react": "^0.13.3"
   }
 }
