@@ -1,0 +1,41 @@
+{
+  "name": "react-markdown-area",
+  "version": "0.0.1",
+  "description": "A lightweight enhanced textarea with markdown support / preview",
+  "main": "index.js",
+  "browser": "dist",
+  "files": [
+    "README.md",
+    "index.js",
+    "examples",
+    "dist/",
+    "lib/",
+    "less"
+  ],
+  "browserify": {
+    "transforms": [
+      "babelify",
+      "lessify"
+    ]
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/MattMcFarland/react-markdown-area.git"
+  },
+  "keywords": [
+    "markdown",
+    "react",
+    "forms",
+    "textarea",
+    "live",
+    "editor",
+    "gfm",
+    "react",
+    "component"
+  ],
+  "author": "Matt McFarland",
+  "license": "BSD-2-Clause"
+}
