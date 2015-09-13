@@ -4,7 +4,7 @@ An enhanced textarea control built with and for [React](http://facebook.github.i
 
 ## Demo & Examples
 
-Live demo: [mattmcfarland.github.io/react-markdown-area]( http://mattmcfarland.github.io/react-markdown-area/examples)
+Live demo: [mattmcfarland.github.io/react-markdown-area]( http://mattmcfarland.github.io/react-markdown-area)
 
 To build the examples locally, run:
 
