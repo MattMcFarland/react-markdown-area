@@ -4,8 +4,8 @@
   "description": "A lightweight enhanced textarea with markdown support / preview",
   "main": "index.js",
   "browser": "dist",
-  "engines" : {
-    "node" : ">=4.0.0"
+  "engines": {
+    "node": ">=4.0.0"
   },
   "files": [
     "README.md",
@@ -44,6 +44,7 @@
   "license": "BSD-2-Clause",
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-less": "^3.0.3",
     "less": "^2.5.1",
     "marked": "^0.3.5",
     "react": "^0.13.3",
