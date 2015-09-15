@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css"/>
 <link rel="stylesheet" href="css/markedarea.css"/>
 <link rel="stylesheet" href="css/main.css"/>
-<script src="js/markedarea.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/react/0.13.2/JSXTransformer.js"></script>
+
+
 
 <code style="position:absolute;">npm install react-markdown-area</code>
 
@@ -27,7 +27,9 @@
         <p>An enhanced textarea control built with and for <a href="http://facebook.github.io/react/index.html">React</a>. Initially built for use in tuts-wanted.</p>
 
         <h2><a id="user-content-demo--examples" class="anchor" href="#demo--examples" aria-hidden="true"><span class="fa fa-link"></span></a>Demo &amp; Examples</h2>
-        <section id="example"></section>
+        <section id="live-example"></section>
+        <pre><code><xmp><MarkedArea mode="live"/></xmp></code></pre>
+        <section id="tabbed-example"></section>
         <pre><code><xmp><MarkedArea/></xmp></code></pre>
         <p>To build the examples locally, run:</p>
 
@@ -150,10 +152,14 @@ npm start
         <p>BSD Licensed. Copyright (c) Matt McFarland 2015.</p>
     </article>
 </div>
-
+    <script src="js/markedarea.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.13.2/JSXTransformer.js"></script>
     <script type="text/jsx">
         React.render(
-            <MarkedArea/>, document.getElementById('example')
+            <MarkedArea/>, document.getElementById('live-example')
+        );
+        React.render(
+            <MarkedArea/>, document.getElementById('tabbed-example')
         );
     </script>
 
