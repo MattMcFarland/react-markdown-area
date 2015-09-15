@@ -27,8 +27,10 @@
         <p>An enhanced textarea control built with and for <a href="http://facebook.github.io/react/index.html">React</a>. Initially built for use in tuts-wanted.</p>
 
         <h2><a id="user-content-demo--examples" class="anchor" href="#demo--examples" aria-hidden="true"><span class="fa fa-link"></span></a>Demo &amp; Examples</h2>
+        <h3>Live Preview Demo</h3>
         <section id="live-example"></section>
         <pre><code><xmp><MarkedArea mode="live"/></xmp></code></pre>
+        <h3>Tabbed Demo</h3>
         <section id="tabbed-example"></section>
         <pre><code><xmp><MarkedArea/></xmp></code></pre>
         <p>To build the examples locally, run:</p>
@@ -156,7 +158,7 @@ npm start
     <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.13.2/JSXTransformer.js"></script>
     <script type="text/jsx">
         React.render(
-            <MarkedArea/>, document.getElementById('live-example')
+            <MarkedArea mode="live"/>, document.getElementById('live-example')
         );
         React.render(
             <MarkedArea/>, document.getElementById('tabbed-example')
