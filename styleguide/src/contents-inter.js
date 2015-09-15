@@ -1,1 +1,1 @@
-module.exports = [require('/Users/mmcfarland/WebstormProjects/react-markdown-area/lib/markedarea.js')]
+module.exports = [require('/home/ubuntu/workspace/lib/markedarea.js')]

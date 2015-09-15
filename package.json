@@ -1,7 +1,7 @@
 {
   "name": "react-markdown-area",
-  "version": "0.0.8",
-  "description": "A lightweight enhanced textarea with markdown support / preview",
+  "version": "0.0.9",
+  "description": "A React JS Component - enhanced 'textarea' with markdown live preview",
   "engines": {
     "node": ">=4.0.0"
   },
@@ -19,10 +19,7 @@
       [
         "babelify",
         {
-          "stage": 0,
-          "optional": [
-            "es7.asyncFunctions"
-          ]
+          "stage": 0
         }
       ],
       "lessify"
@@ -48,6 +45,7 @@
     "forms",
     "textarea",
     "live",
+    "preview",
     "editor",
     "gfm",
     "react-component"
