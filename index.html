@@ -6,19 +6,11 @@
 </head>
 <body>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css"/>
-<link rel="stylesheet" href="css/markedarea.min.css"/>
+<link rel="stylesheet" href="css/markedarea.css"/>
 <link rel="stylesheet" href="css/main.css"/>
-<<<<<<< HEAD
-=======
+<script src="js/markedarea.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/react/0.13.2/JSXTransformer.js"></script>
 
-
->>>>>>> 2ffcf6fb3499b85ac389573b001004f6c26a9aa5
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.js"></script>
-
-<script src="js/markedarea.min.js"></script>
 <code style="position:absolute;">npm install react-markdown-area</code>
 
 <div id="readme" class="blob instapaper_body">
@@ -34,20 +26,10 @@
 
         <p>An enhanced textarea control built with and for <a href="http://facebook.github.io/react/index.html">React</a>. Initially built for use in tuts-wanted.</p>
 
-<<<<<<< HEAD
         <h2><a id="user-content-demo--examples" class="anchor" href="#demo--examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo &amp; Examples</h2>
 
         <p>Live demo:</p>
         <div id="example"></div>
-=======
-        <h2><a id="user-content-demo--examples" class="anchor" href="#demo--examples" aria-hidden="true"><span class="fa fa-link"></span></a>Demo &amp; Examples</h2>
-        <h3>Live Preview Demo</h3>
-        <section id="live-example"></section>
-        <pre><code><xmp><MarkedArea mode="live"/></xmp></code></pre>
-        <h3>Tabbed Demo</h3>
-        <section id="tabbed-example"></section>
-        <pre><code><xmp><MarkedArea/></xmp></code></pre>
->>>>>>> 2ffcf6fb3499b85ac389573b001004f6c26a9aa5
         <p>To build the examples locally, run:</p>
 
 <pre><code>npm install
@@ -210,14 +192,10 @@
         <p>Initial Release.</p>
     </article>
 </div>
-    <script src="js/markedarea.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.13.2/JSXTransformer.js"></script>
+
     <script type="text/jsx">
         React.render(
-            <MarkedArea mode="live"/>, document.getElementById('live-example')
-        );
-        React.render(
-            <MarkedArea/>, document.getElementById('tabbed-example')
+            <MarkedArea/>, document.getElementById('example')
         );
     </script>
 
