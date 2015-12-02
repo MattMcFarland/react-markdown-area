@@ -197,11 +197,10 @@
     </article>
 </div>
 
-    <script type="text/jsx">
-        React.render(
-            <MarkedArea/>, document.getElementById('example')
-        );
-    </script>
+<script>
+    var el = React.createElement(MarkedArea, {mode: 'live'});
+    ReactDOM.render(el, document.getElementById('example'));
+</script>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </body>
