@@ -103,6 +103,7 @@ BSD Licensed. Copyright (c) Matt McFarland 2015.
 ### v0.1.0:
  - Removed dependency inclusion, this dramatically reduced file size, but you will need to install dependencies for this to work.
  - You must now make sure to install marked as a dependency, `npm install marked`
+
 ### v0.0.0 to v0.0.9:
 
 Initial Release.
