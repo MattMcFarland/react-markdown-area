@@ -8,8 +8,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css"/>
 <link rel="stylesheet" href="css/markedarea.css"/>
 <link rel="stylesheet" href="css/main.css"/>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.min.js"></script>
+
 <script src="js/markedarea.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/react/0.13.2/JSXTransformer.js"></script>
 
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-react-markdown-area" class="anchor" href="#react-markdown-area" aria-hidden="true"><span class="octicon octicon-link"></span></a>React-Markdown-Area</h1>
@@ -144,7 +147,7 @@ npm start
 </div>
 
     <script type="text/jsx">
-        React.render(
+        ReactDOM.render(
             <MarkedArea mode="live"/>, document.getElementById('example')
         );
     </script>

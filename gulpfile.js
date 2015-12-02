@@ -2,58 +2,38 @@
 
 /* Module Dependencies */
 const
-  browserify  = require('browserify'),
-  gulp        = require('gulp'),
-  source      = require('vinyl-source-stream'),
-  buffer      = require('vinyl-buffer'),
-  gutil       = require('gulp-util'),
-  less        = require('gulp-less'),
-  path        = require('path'),
-  rename      = require('gulp-rename'),
-  webserver   = require('gulp-webserver'),
-  RSG         = require('react-styleguide-generator');
+  gulp  = require('gulp'),
+  gutil = require('gulp-util');
 
+/* Tasks */
+const
+  bundle    = require('./tasks/bundle'),
+  bundlemin = require("./tasks/bundlemin"),
+  lint      = require('./tasks/lint'),
+  watch     = require('./tasks/watch'),
+  sass      = require('./tasks/sass');
 
-gulp.task('less', () => {
-  return gulp.src('less/markedarea.less')
-    .pipe(less({
-      paths: [ path.join(__dirname, 'less', 'includes') ]
-    }))
-    .pipe(gulp.dest('./dist'));
-});
+// minor tasks
+gulp.task('lint',       () => lint('lib/markedarea.js'));
+gulp.task('sass',       () => sass('style/markedarea.scss', 'markedarea', 'dist'));
+gulp.task('bundlemin',  () => bundlemin('lib/markedarea',   'markedarea', 'dist'));
+gulp.task('bundle',     () => bundle('lib/markedarea',      'markedarea', 'dist'));
 
+// major tasks
+gulp.task('bundle-prod',  ['lint', 'sass', 'bundlemin']);
+gulp.task('bundle-dev',   ['lint', 'sass', 'bundle']);
 
-gulp.task('styleguide', (done) => {
-  const rsg = RSG('./lib/markedarea.js', {
-    output: './styleguide'
+// watchers
+gulp.task('watch-src',  () =>
+  watch('src/markedarea', 'markedarea', 'dist'));
+
+gulp.task('watch-sass', () => {
+  gutil.log('Watch style/markedarea.scss');
+  gulp.watch('style/markedarea.scss', (e) => {
+    gutil.log('File Changed', gutil.colors.cyan(e.path));
+    sass('style/markedarea.scss', 'markedarea', 'dist')
   });
-  rsg.generate(function (err) {
-    if (err) {
-      console.error(String(err));
-    }
-    done();
-  });
 });
 
 
-gulp.task('bundle', () => {
-  var b = browserify({
-    entries: './eindex.js',
-    debug: true
-  });
-  return b.bundle()
-    .on('error', gutil.log)
-    .pipe(source('markedarea.js'))
-    .pipe(buffer())
-    .pipe(gulp.dest('./dist'));
-});
 
-gulp.task('webserver', () => {
-  gulp.src('examples/basic')
-    .pipe(webserver({
-      livereload: true,
-      open: true
-    }))
-});
-
-gulp.task('default', ['webserver']);

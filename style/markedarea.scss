@@ -1,7 +1,7 @@
 .marked-area {
   border: thin solid #bababa;
   display: block;
-  .marked-area-header {
+  &-header {
     > label {
       display: block;
     }
@@ -13,7 +13,7 @@
       border-bottom: thin solid #bababa;
     }
   }
-  .marked-area-button {
+  &-button {
     font-size:16px;
     line-height:20px;
     border-radius:0;
@@ -24,10 +24,10 @@
       background-color:grey;
     }
   }
-  .marked-area-help-link {
+  &-help-link {
     margin-left: 1em;
   }
-  .marked-area-text-container {
+  &-text-container {
     > textarea, > div {
       display: block;
       box-sizing: border-box;
@@ -38,7 +38,7 @@
       margin: 0;
     }
   }
-  .marked-area-live-divider {
+  &-live-divider {
     margin: 0 0 -1.5em;
     opacity: 0.3;
     border-top: thin solid black;
