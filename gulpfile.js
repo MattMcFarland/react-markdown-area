@@ -2,38 +2,42 @@
 
 /* Module Dependencies */
 const
-  gulp  = require('gulp'),
-  gutil = require('gulp-util');
+  gulp    = require('gulp'),
+  gutil   = require('gulp-util'),
+  server  = require('gulp-webserver');
 
 /* Tasks */
 const
   bundle    = require('./tasks/bundle'),
   bundlemin = require("./tasks/bundlemin"),
   lint      = require('./tasks/lint'),
-  watch     = require('./tasks/watch'),
+  minifyCss = require('./tasks/minify-css'),
   sass      = require('./tasks/sass');
 
+
 // minor tasks
-gulp.task('lint',       () => lint('lib/markedarea.js'));
-gulp.task('sass',       () => sass('style/markedarea.scss', 'markedarea', 'dist'));
-gulp.task('bundlemin',  () => bundlemin('lib/markedarea',   'markedarea', 'dist'));
-gulp.task('bundle',     () => bundle('lib/markedarea',      'markedarea', 'dist'));
+gulp.task('lint',       () => lint('src/markedarea.js'));
+gulp.task('sass-dist',  () => sass('style/markedarea.scss', 'markedarea', 'dist'));
+gulp.task('sass-lib',   () => sass('style/markedarea.scss', 'markedarea', 'lib'));
+gulp.task('minify-css', () => minifyCss('lib/markedarea.css', 'markedarea.min.css', 'dist'));
+gulp.task('header',     () => header('dist/**', 'dist'));
+gulp.task('sass',       ['sass-lib', 'sass-dist']);
 
-// major tasks
-gulp.task('bundle-prod',  ['lint', 'sass', 'bundlemin']);
-gulp.task('bundle-dev',   ['lint', 'sass', 'bundle']);
+// bundlers
+gulp.task('bundle-lib',        () => bundle('src/markedarea',      'markedarea', 'lib'));
+gulp.task('bundle-dist-min',   () => bundlemin('src/markedarea',   'markedarea', 'dist'));
+gulp.task('bundle-dist-debug', () => bundle('src/markedarea',      'markedarea', 'dist'));
 
-// watchers
-gulp.task('watch-src',  () =>
-  watch('src/markedarea', 'markedarea', 'dist'));
+// bundle UMD distribution files
+gulp.task('bundle-dist', ['lint', 'sass', 'minify-css', 'bundle-dist', 'bundle-dist-min']);
 
-gulp.task('watch-sass', () => {
-  gutil.log('Watch style/markedarea.scss');
-  gulp.watch('style/markedarea.scss', (e) => {
-    gutil.log('File Changed', gutil.colors.cyan(e.path));
-    sass('style/markedarea.scss', 'markedarea', 'dist')
-  });
+// Bundle Package
+gulp.task('bundle',  ['lint', 'sass', 'minify-css', 'bundle-dist-debug', 'bundle-dist-min', 'bundle-lib']);
+
+// Web server.
+gulp.task('serve', function() {
+  gulp.src('examples/basic')
+    .pipe(server({
+      open: true
+    }));
 });
-
-
-

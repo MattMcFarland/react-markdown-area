@@ -1,6 +1,9 @@
 var
   browserify = require('browserify'),
   gulp = require('gulp'),
+  fs = require('fs'),
+  header = require('gulp-header'),
+  pkg = require('../package.json'),
   source = require('vinyl-source-stream'),
   buffer = require('vinyl-buffer'),
   uglify = require('gulp-uglify'),
@@ -11,13 +14,15 @@ var
 module.exports = function(entry, name, dest, callback) {
   var b = browserify({
     entries: entry,
-    debug: false
+    standalone: 'MarkedArea'
   });
   var filename = name + ".min.js";
 
   getNPMPackageIds().forEach(function (id) {
     b.external(id);
   });
+
+  b.transform({global: true}, 'browserify-shim');
 
   return b.bundle()
     .on('error', gutil.log)
@@ -27,6 +32,7 @@ module.exports = function(entry, name, dest, callback) {
     .on('end', () => {
       gutil.log('File Saved', gutil.colors.cyan(dest + '/' + name + '.min.js'));
     })
+    .pipe(header(fs.readFileSync('tasks/header.ejs', 'utf8'), {pkg: pkg}))
     .pipe(gulp.dest(dest));
 };
 

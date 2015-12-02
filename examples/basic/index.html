@@ -6,13 +6,14 @@
 </head>
 <body>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css"/>
-<link rel="stylesheet" href="css/markedarea.css"/>
+<link rel="stylesheet" href="css/markedarea.min.css"/>
 <link rel="stylesheet" href="css/main.css"/>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.js"></script>
 
-<script src="js/markedarea.js"></script>
+<script src="js/markedarea.min.js"></script>
 
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-react-markdown-area" class="anchor" href="#react-markdown-area" aria-hidden="true"><span class="octicon octicon-link"></span></a>React-Markdown-Area</h1>
@@ -47,7 +48,7 @@ npm start
             The bundled package comes with a minimal and namespaced amount of CSS.  You can change the classnames of each element in use by modifying the <code>classNames</code> prop.</p>
 
 <pre><code>var MarkedArea = require('react-markdown-area');
-// Or import {MarkedArea} from 'react-markdown-area';
+// Or import MarkedArea from 'react-markdown-area';
 
 &lt;MarkedArea label="Enter your markdown text" placeholder="Type in here"/&gt;
 
@@ -146,10 +147,10 @@ npm start
     </article>
 </div>
 
-    <script type="text/jsx">
-        ReactDOM.render(
-            <MarkedArea mode="live"/>, document.getElementById('example')
-        );
-    </script>
+<script>
+    var el = React.createElement(MarkedArea, {mode: 'live'});
+    ReactDOM.render(el, document.getElementById('example'));
+</script>
+
 </body>
 </html>
