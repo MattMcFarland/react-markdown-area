@@ -1,0 +1,21 @@
+/**
+ *  react-markdown-area - A React JS Component - enhanced 'textarea' with markdown live preview
+ *  Copyright (c) 2015, Matthew McFarland. (BSD Licensed)
+ *  @version v0.1.0
+ *  @link http://mattmcfarland.github.io/react-markdown-area/
+ *  @license BSD-2-Clause
+ */
+
+/**
+* Vendor: React
+* Copyright 2013-2015, Facebook, Inc. (BSD-style license in the root directory of react source tree)
+* All rights reserved.
+*
+*/
+
+/**
+* Vendor: marked - a markdown parser
+* Copyright (c) 2011-2014, Christopher Jeffrey. (MIT Licensed)
+* https://github.com/chjj/marked
+*/
+.marked-area{border:thin solid #bababa;display:block}.marked-area-header>label{display:block}.marked-area-header menu{padding:1em .5em;margin:0;display:block;background:#efefef;border-bottom:thin solid #bababa}.marked-area-button{font-size:16px;line-height:20px;border-radius:0;border:thin solid grey;background-color:#fff}.marked-area-button.active{color:#fff;background-color:grey}.marked-area-help-link{margin-left:1em}.marked-area-text-container>div,.marked-area-text-container>textarea{display:block;box-sizing:border-box;width:100%;border:0;min-height:160px;padding:1em;margin:0}.marked-area-live-divider{margin:0 0 -1.5em;opacity:.3;border-top:thin solid #000;padding:.5em .5em 0;font-size:16px;line-height:16px}

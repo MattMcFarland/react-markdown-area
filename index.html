@@ -6,11 +6,14 @@
 </head>
 <body>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css"/>
-<link rel="stylesheet" href="css/markedarea.css"/>
+<link rel="stylesheet" href="css/markedarea.min.css"/>
 <link rel="stylesheet" href="css/main.css"/>
-<script src="js/markedarea.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/react/0.13.2/JSXTransformer.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.js"></script>
+
+<script src="js/markedarea.min.js"></script>
 <code style="position:absolute;">npm install react-markdown-area</code>
 
 <div id="readme" class="blob instapaper_body">
@@ -22,43 +25,72 @@
             <iframe src="https://ghbtns.com/github-btn.html?user=mattmcfarland&repo=react-markdown-area&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
         </div>
     </header>
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-react-markdown-area" class="anchor" href="#react-markdown-area" aria-hidden="true"><span class="fa fa-link"></span></a>React-Markdown-Area <small>&nbsp;AKA MarkedArea</small></h1>
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-react-markdown-area" class="anchor" href="#react-markdown-area" aria-hidden="true"><span class="octicon octicon-link"></span></a>React-Markdown-Area</h1>
 
         <p>An enhanced textarea control built with and for <a href="http://facebook.github.io/react/index.html">React</a>. Initially built for use in tuts-wanted.</p>
 
-        <h2><a id="user-content-demo--examples" class="anchor" href="#demo--examples" aria-hidden="true"><span class="fa fa-link"></span></a>Demo &amp; Examples</h2>
-        <section id="example"></section>
-        <pre><code><xmp><MarkedArea/></xmp></code></pre>
+        <h2><a id="user-content-demo--examples" class="anchor" href="#demo--examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo &amp; Examples</h2>
+
+        <p>Live demo:</p>
+        <div id="example"></div>
         <p>To build the examples locally, run:</p>
 
 <pre><code>npm install
-npm start
+    npm start
 </code></pre>
 
-        <p>Then open <code>localhost:8000</code> in a browser.</p>
+        <p>Then open <a href="http://localhost:8000"><code>localhost:8000</code></a> in a browser.</p>
 
-        <h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="fa fa-link"></span></a>Installation</h2>
+        <h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
         <p>The easiest way to use React--Markdown-Area is to install it from NPM and include it in your own React build process (using <a href="http://browserify.org">Browserify</a>, etc).</p>
 
 <pre><code>npm install react-markdown-area --save
 </code></pre>
 
-        <p>You can also use the standalone build by including <code>dist/markedarea.js</code> in your page. The standalone build contains all the dependencies, so for less bloat its better to use NPM.</p>
+        <h3><a id="user-content-standalone" class="anchor" href="#standalone" aria-hidden="true"><span class="octicon octicon-link"></span></a>Standalone</h3>
 
-        <h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="fa fa-link"></span></a>Usage</h2>
+        <p>Use the standalone by including <code>dist/markedarea.js</code> or <code>dist/markedarea.min.js</code> in your page, as well as <code>dist/markedarea.css</code> or <code>dist/markedarea.min.css</code>.</p>
+
+        <p>You will need to make sure to have <code>React</code> and <code>marked</code> dependencies installed.</p>
+
+        <div class="highlight highlight-text-html-basic"><pre><span class="pl-c">&lt;!-- Dependencies --&gt;</span>
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+
+
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>css/markedarea.min.css<span class="pl-pds">"</span></span>/&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>js/markedarea.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+
+        <h3><a id="user-content-browserifywebpack" class="anchor" href="#browserifywebpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>Browserify/WebPack</h3>
+
+        <p>react-markedown-area is now bundled under the <code>UMD</code> classification, to reduce the need for dependencies and to simplify inclusion into your project.</p>
+
+        <p>for example:</p>
+
+<pre><code>npm install react react-dom marked
+</code></pre>
+
+        <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> MarkedArea <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>react-markdown-area<span class="pl-pds">'</span></span>);
+<span class="pl-c">// Or import MarkedArea from 'react-markdown-area';</span></pre></div>
+
+        <p>Because module loaders handle stylesheets differently, and there are a number of transforms out there,
+            you will then need to separately load the CSS file in the <code>lib</code> folder, by either copying, or using a transform, etc.  The CSS is minimal, around 40 lines of code.</p>
+
+        <h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
         <p>React-Markdown-Area generates two buttons for switching between live and edit mode, a textarea, and a preview pane.
             The bundled package comes with a minimal and namespaced amount of CSS.  You can change the classnames of each element in use by modifying the <code>classNames</code> prop.</p>
 
 <pre><code>var MarkedArea = require('react-markdown-area');
-<span style="opacity:0.6; color:white">// Or import {MarkedArea} from 'react-markdown-area';</span>
+    // Or import MarkedArea from 'react-markdown-area';
 
-&lt;MarkedArea label="Enter your markdown text" placeholder="Type in here"/&gt;
+    &lt;MarkedArea label="Enter your markdown text" placeholder="Type in here"/&gt;
 
 </code></pre>
 
-        <h3><a id="user-content-props" class="anchor" href="#props" aria-hidden="true"><span class="fa fa-link"></span></a>Props</h3>
+        <h3><a id="user-content-props" class="anchor" href="#props" aria-hidden="true"><span class="octicon octicon-link"></span></a>Props</h3>
 
         <table><thead>
         <tr>
@@ -104,7 +136,7 @@ npm start
         </tr>
         </tbody></table>
 
-        <h3><a id="user-content-propsclassnames" class="anchor" href="#propsclassnames" aria-hidden="true"><span class="fa fa-link"></span></a>props.classNames</h3>
+        <h3><a id="user-content-propsclassnames" class="anchor" href="#propsclassnames" aria-hidden="true"><span class="octicon octicon-link"></span></a>props.classNames</h3>
 
         <table><thead>
         <tr>
@@ -145,9 +177,22 @@ npm start
         </tr>
         </tbody></table>
 
-        <h2><a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="fa fa-link"></span></a>License</h2>
+        <h2><a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
 
         <p>BSD Licensed. Copyright (c) Matt McFarland 2015.</p>
+
+        <h2><a id="user-content-changelog" class="anchor" href="#changelog" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changelog:</h2>
+
+        <h3><a id="user-content-v010" class="anchor" href="#v010" aria-hidden="true"><span class="octicon octicon-link"></span></a>v0.1.0:</h3>
+
+        <ul>
+            <li>Removed dependency inclusion, this dramatically reduced file size, but you will need to install dependencies for this to work.</li>
+            <li>You must now make sure to install marked as a dependency, <code>npm install marked</code></li>
+        </ul>
+
+        <h3><a id="user-content-v000-to-v009" class="anchor" href="#v000-to-v009" aria-hidden="true"><span class="octicon octicon-link"></span></a>v0.0.0 to v0.0.9:</h3>
+
+        <p>Initial Release.</p>
     </article>
 </div>
 
