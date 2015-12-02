@@ -1,7 +1,11 @@
 #readme {
     max-width: 960px;
     margin: 0 auto;
-    padding: 1em;
+    padding: 2.5em;
+    background: white;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+    border-radius: 2px;
+    font-size:115%;
 }
 table {
     width: 100%;
