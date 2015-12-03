@@ -9,6 +9,10 @@ class MarkedArea extends React.Component {
       isPreview: props.isPreview ? props.isPreview : false,
       value: props.defaultValue ? props.defaultValue : ''
     };
+
+    this._onChange = this._onChange.bind(this);
+    this.enablePreview = this.enablePreview.bind(this);
+    this.disablePreview = this.disablePreview.bind(this);
   }
 
   get parsed () {
@@ -74,13 +78,14 @@ class MarkedArea extends React.Component {
       </section>
     );
   }
-  _onChange = (e) => {
+
+  _onChange (e)  {
     this.setState({ value: e.target.value });
   };
-  disablePreview = () => {
+  disablePreview () {
     this.setState({ isPreview: false });
   };
-  enablePreview = () => {
+  enablePreview () {
     this.setState({ isPreview: true });
   };
 
