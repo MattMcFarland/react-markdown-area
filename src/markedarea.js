@@ -1,5 +1,6 @@
 import React from 'react';
 import marked from 'marked';
+require('../style/markedarea.scss');
 
 
 class MarkedArea extends React.Component {
