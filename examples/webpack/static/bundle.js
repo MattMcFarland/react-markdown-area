@@ -2421,6 +2421,7 @@
 						_this._onChange = _this._onChange.bind(_this);
 						_this.enablePreview = _this.enablePreview.bind(_this);
 						_this.disablePreview = _this.disablePreview.bind(_this);
+						_this.onKeyDown = _this.onKeyDown.bind(_this);
 						return _this;
 					}
 
@@ -2440,6 +2441,60 @@
 							this.setState({ isPreview: true });
 						}
 					}, {
+						key: 'onKeyDown',
+						value: function onKeyDown(e) {
+
+							if (e.key === "Tab") {
+								e.preventDefault();
+								var is_shift = e.shiftKey;
+								var index = e.target.selectionStart;
+								var val = e.target.value;
+								var i = index;
+
+								for (; i >= 0; i--) {
+									if (val[i] === '\n') break;
+								}
+
+								var line_length = index - i - 1;
+								var tab_offset = line_length % 4;
+
+								var start = val.substring(0, index);
+								var end = val.substring(index);
+
+								var cat = "";
+								console.log(is_shift, val.substring(i + 1, index).trim());
+
+								if (!is_shift) {
+									console.log("first char: ", val[i], val[i + 1]);
+
+									var space_len = 4 - tab_offset;
+									var spaces = "    ".substr(0, space_len);
+									console.log("pos", index);
+
+									cat = start + spaces + end;
+									e.target.value = cat;
+									e.target.selectionStart = index + space_len;
+									e.target.selectionEnd = index + space_len;
+									this.setState({ value: e.target.value });
+								} else if (val.substring(i + 1, index).trim().length === 0) {
+									console.log("all whitespace");
+
+									var spaces_to_remove = tab_offset;
+
+									if (spaces_to_remove === 0 && line_length >= 4) {
+										spaces_to_remove = 4;
+									}
+
+									cat = start.substr(0, start.length - spaces_to_remove) + end;
+
+									e.target.value = cat;
+									e.target.selectionStart = index - spaces_to_remove;
+									e.target.selectionEnd = index - spaces_to_remove;
+									this.setState({ value: e.target.value });
+								}
+							}
+						}
+					}, {
 						key: 'render',
 						value: function render() {
 
@@ -2453,7 +2508,12 @@
 					}, {
 						key: 'raw',
 						get: function get() {
-							return _react2.default.createElement('textarea', _extends({}, this.props, { id: this.props.id, onChange: this.props.onChange || this._onChange, value: this.state.value }));
+							return _react2.default.createElement('textarea', _extends({}, this.props, {
+								id: this.props.id,
+								onChange: this.props.onChange || this._onChange,
+								value: this.state.value,
+								onKeyDown: this.onKeyDown
+							}));
 						}
 					}, {
 						key: 'tabbedToolbar',

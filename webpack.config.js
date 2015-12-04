@@ -3,7 +3,7 @@ var webpack = require('webpack');
 module.exports = {
     entry: './src/markedarea.js',
       output: {
-        filename: 'lib/markedarea.js',
+        filename: './lib/markedarea.js',
         library: 'MarkedArea',
         libraryTarget: 'umd'
       },

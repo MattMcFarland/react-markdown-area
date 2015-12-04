@@ -14,6 +14,7 @@ class MarkedArea extends React.Component {
     this._onChange = this._onChange.bind(this);
     this.enablePreview = this.enablePreview.bind(this);
     this.disablePreview = this.disablePreview.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
   }
 
   get parsed () {
@@ -23,7 +24,13 @@ class MarkedArea extends React.Component {
   }
   get raw () {
     return (
-      <textarea {...this.props} id={this.props.id} onChange={this.props.onChange || this._onChange} value={this.state.value}/>
+          <textarea
+        {...this.props}
+        id={this.props.id}
+        onChange={this.props.onChange || this._onChange}
+        value={this.state.value}
+        onKeyDown = {this.onKeyDown}
+        />
     );
   }
   get tabbedToolbar () {
@@ -88,6 +95,62 @@ class MarkedArea extends React.Component {
   };
   enablePreview () {
     this.setState({ isPreview: true });
+  };
+   onKeyDown(e){
+
+    if (e.key === "Tab"){
+      e.preventDefault();
+      var is_shift = e.shiftKey;
+      var index = e.target.selectionStart;
+      var val = e.target.value;
+      var i = index;
+
+      for(; i >= 0; i--){
+        if (val[i] === '\n')
+          break;
+      }
+
+      var line_length = index - i - 1;
+      var tab_offset = line_length % 4;
+
+      var start = val.substring(0, index);
+      var end = val.substring(index);
+
+      var cat = "";
+      console.log(is_shift, val.substring(i + 1, index).trim());
+
+      if (!is_shift){
+        console.log("first char: ", val[i], val[i+1]);
+
+        var space_len = 4 - tab_offset;
+        var spaces = "    ".substr(0, space_len);
+        console.log("pos", index);
+
+        cat = start + spaces + end;
+        e.target.value = cat;
+        e.target.selectionStart = index + space_len;
+        e.target.selectionEnd = index + space_len;
+        this.setState({ value: e.target.value });
+
+      }else if (val.substring(i + 1, index).trim().length === 0){
+        console.log("all whitespace");
+
+        var spaces_to_remove = tab_offset;
+
+        if (spaces_to_remove === 0 && line_length >= 4){
+          spaces_to_remove = 4;
+        }
+
+        cat = start.substr(0, start.length - spaces_to_remove) + end;
+
+        e.target.value = cat;
+        e.target.selectionStart = index - spaces_to_remove;
+        e.target.selectionEnd = index - spaces_to_remove;
+        this.setState({ value: e.target.value });
+      }
+      
+      
+    }
   };
 
   render () {
