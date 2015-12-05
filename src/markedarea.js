@@ -3,18 +3,28 @@ import marked from 'marked';
 require('../style/markedarea.scss');
 
 
-class MarkedArea extends React.Component {
+class Base extends React.Component {
+   _bind(...methods) {
+  methods.forEach( (method) => this[method] = this[method].bind(this) );
+ }
+}
+
+
+class MarkedArea extends Base {
   constructor (props) {
     super(props);
     this.state = {
       isPreview: props.isPreview ? props.isPreview : false,
       value: props.defaultValue ? props.defaultValue : ''
     };
+    this._bind(
+      '_onChange', 
+      'enablePreview', 
+      'enablePreview', 
+      'disablePreview', 
+      'onKeyDown'
+      );
 
-    this._onChange = this._onChange.bind(this);
-    this.enablePreview = this.enablePreview.bind(this);
-    this.disablePreview = this.disablePreview.bind(this);
-    this.onKeyDown = this.onKeyDown.bind(this);
   }
 
   get parsed () {
@@ -97,13 +107,14 @@ class MarkedArea extends React.Component {
     this.setState({ isPreview: true });
   };
    onKeyDown(e){
-
+    
     if (e.key === "Tab"){
       e.preventDefault();
-      var is_shift = e.shiftKey;
-      var index = e.target.selectionStart;
-      var val = e.target.value;
-      var i = index;
+      let 
+        is_shift = e.shiftKey,
+        index = e.target.selectionStart,
+        val = e.target.value,
+        i = index;
 
       for(; i >= 0; i--){
         if (val[i] === '\n')
