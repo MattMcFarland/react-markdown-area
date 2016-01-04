@@ -9,14 +9,59 @@ The easiest way to use `React-Markdown-Area` is to install it from NPM and inclu
 ```
 npm install react-markdown-area --save
 ```
+### Standalone
 
+Use the standalone by including `dist/markedarea.js` or `dist/markedarea.min.js` in your page, as well as `dist/markedarea.css` or `dist/markedarea.min.css`.
+
+You will need to make sure to have `React` and `marked` dependencies installed.
+
+```HTML
+<!-- Dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.min.js"></script>
+
+
+<link rel="stylesheet" href="css/markedarea.min.css"/>
+<script src="js/markedarea.min.js"></script>
+```
+
+### Browserify/WebPack
+
+react-markedown-area is now bundled under the `UMD` classification, to reduce the need for dependencies and to simplify inclusion into your project.
+
+for example:
+
+```
+npm install react react-dom marked
+```
+
+```javascript
+var MarkedArea = require('react-markdown-area');
+// Or import MarkedArea from 'react-markdown-area';
+```
+
+Because module loaders handle stylesheets differently, and there are a number of transforms out there,
+you will then need to separately load the CSS file in the `lib` folder, by either copying, or using a transform, etc.  The CSS is minimal, around 40 lines of code.
+
+<<<<<<< HEAD
 ## Basic Usage
+=======
+
+## Usage
+>>>>>>> 96304af3a324e2c27ef19a48930eed5d66cce7d5
 
 React-Markdown-Area generates two buttons for switching between live and edit mode, a textarea, and a preview pane.
 The bundled package comes with a minimal and namespaced amount of CSS.  You can change the classnames of each element in use by modifying the `classNames` prop.
 
+<<<<<<< HEAD
 ```javascript
 
+=======
+```
+var MarkedArea = require('react-markdown-area');
+// Or import MarkedArea from 'react-markdown-area';
+>>>>>>> 96304af3a324e2c27ef19a48930eed5d66cce7d5
 
 var MarkedArea = require('react-markdown-area').MarkedArea;
 
@@ -111,6 +156,7 @@ export class LiveMarkedArea extends React.Component {
 
 ## License
 
+<<<<<<< HEAD
 
 BSD Licensed. Copyright (c) Matt McFarland 2015-2016.
 
@@ -140,3 +186,16 @@ BSD Licensed. Copyright (c) Matt McFarland 2015-2016.
 ### v0.0.0 to v0.0.9:
 
 Initial Release.
+=======
+BSD Licensed. Copyright (c) Matt McFarland 2015.
+
+## Changelog:
+
+### v0.1.0:
+ - Removed dependency inclusion, this dramatically reduced file size, but you will need to install dependencies for this to work.
+ - You must now make sure to install marked as a dependency, `npm install marked`
+
+### v0.0.0 to v0.0.9:
+
+Initial Release.
+>>>>>>> 96304af3a324e2c27ef19a48930eed5d66cce7d5
