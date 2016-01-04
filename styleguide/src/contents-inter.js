@@ -1,1 +1,0 @@
-module.exports = [require('/home/ubuntu/workspace/lib/markedarea.js')]

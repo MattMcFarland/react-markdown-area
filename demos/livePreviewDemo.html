@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="markedarea.css">
+</head>
+
+<body>
+  <style>
+    #forkongithub a{background:#000;color:#fff;text-decoration:none;font-family:arial,sans-serif;text-align:center;font-weight:bold;padding:5px 40px;font-size:1rem;line-height:2rem;position:relative;transition:0.5s;}#forkongithub a:hover{background:#c11;color:#fff;}#forkongithub a::before,#forkongithub a::after{content:"";width:100%;display:block;position:absolute;top:1px;left:0;height:1px;background:#fff;}#forkongithub a::after{bottom:1px;top:auto;}@media screen and (min-width:800px){#forkongithub{position:absolute;display:block;top:0;right:0;width:200px;overflow:hidden;height:200px;z-index:9999;}#forkongithub a{width:200px;position:absolute;top:27px;right:-60px;transform:rotate(45deg);-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);box-shadow:4px 4px 10px rgba(0,0,0,0.8);}}
+  </style><span id="forkongithub"><a href="https://github.com/MattMcFarland/react-markdown-area">Fork me on GitHub</a></span>
+  <main class="container" style="overflow:hidden;">
+    <div class="row">
+      <div class="col-sm-4 col-md-3">
+        <h3>&lt;LiveMarkedArea/></h3>
+        <ul class="nav nav-pills nav-stacked">
+          <li>
+            <h5>Containers</h5>
+          </li>
+          <li class="active">
+            <a class="active" href="/livePreviewDemo.html">&lt;LiveMarkedArea/></a>
+          </li>
+          <li>
+            <a href="/tabbedDemo.html">&lt;MarkedArea/></a>
+          </li>
+          <li>
+            <h5>Components</h5>
+          </li>
+          <li>
+            <a href="/livePreviewDemo.html">&lt;LiveMarkedArea/></a>
+          </li>
+          <li>
+            <a href="/tabbedDemo.html">&lt;MarkedArea/></a>
+          </li>
+          <li>
+            <a href="/tabbedDemo.html">&lt;MarkedArea/></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-8 col-md-9">
+        <div class="row">
+          <div style="margin-top:12px; margin-bottom:16px;">
+            <a href="https://nodei.co/npm/react-markdown-area/"><img src="https://nodei.co/npm/react-markdown-area.png?compact=true"></a>
+          </div>
+            <p>The <code>LiveMarkedArea</code> gives you a live markdown preview along with your textarea.</p>
+            <p>As you type in the text area it flavores the text immediately.</p>
+          <div id="root">&nbsp;</div>
+          <script tyle="application/javascript" src="js/livePreviewDemo.js"></script>
+        </div>
+        <div class="row">
+          <pre style='font-size:15px;width:100%;overflow:hidden;color:#d1d1d1;background:#000000;'><span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>section</span> className<span style='color:#d2cd86; '>=</span>{classNames<span style='color:#00a800; '>.</span>root}<span style='color:#ff8906; '>></span>
+
+  <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>header</span> className<span style='color:#d2cd86; '>=</span>{classNames<span style='color:#00a800; '>.</span>header}<span style='color:#ff8906; '>></span>
+    <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>label</span> htmlFor<span style='color:#d2cd86; '>=</span>{id}<span style='color:#ff8906; '>></span>{label}<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>label</span><span style='color:#ff8906; '>></span>
+  <span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>header</span><span style='color:#ff8906; '>></span>
+
+<span style='color:#ff8906; '>&lt;</span><span style='color:#f6c1d0; '>MarkedInput</span>
+  classNames<span style='color:#d2cd86; '>=</span>{classNames}
+  onChange<span style='color:#d2cd86; '>=</span>{this<span style='color:#00a800; '>.</span>handleTextChange}
+  value<span style='color:#d2cd86; '>=</span>{value} <span style='color:#ff8906; '>/></span>
+
+<span style='color:#ff8906; '>&lt;</span><span style='color:#f6c1d0; '>MarkedPreview</span>
+  classNames<span style='color:#d2cd86; '>=</span>{classNames}
+  value<span style='color:#d2cd86; '>=</span>{value} <span style='color:#ff8906; '>/></span>
+
+<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>section</span><span style='color:#ff8906; '>></span>
+</pre>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

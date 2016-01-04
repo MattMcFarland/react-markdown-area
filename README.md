@@ -2,39 +2,25 @@
 
 An enhanced textarea control built with and for [React](http://facebook.github.io/react/index.html). Initially built for use in tuts-wanted.
 
-## Demo & Examples
-
-Live demo: [mattmcfarland.github.io/react-markdown-area]( http://mattmcfarland.github.io/react-markdown-area)
-
-To build the examples locally, run:
-
-```
-npm install
-npm start
-```
-
-Then open [`localhost:8000`](http://localhost:8000) in a browser.
-
 ## Installation
 
-The easiest way to use React--Markdown-Area is to install it from NPM and include it in your own React build process (using [Browserify](http://browserify.org), etc).
+The easiest way to use `React-Markdown-Area` is to install it from NPM and include it in your own React build process (using [Browserify](http://browserify.org), etc).
 
 ```
 npm install react-markdown-area --save
 ```
 
-You can also use the standalone build by including `dist/markedarea.js` in your page. The standalone build contains all the dependencies, so for less bloat its better to use NPM.
-
-## Usage
+## Basic Usage
 
 React-Markdown-Area generates two buttons for switching between live and edit mode, a textarea, and a preview pane.
 The bundled package comes with a minimal and namespaced amount of CSS.  You can change the classnames of each element in use by modifying the `classNames` prop.
 
-```
-var MarkedArea = require('react-markdown-area');
-// Or import {MarkedArea} from 'react-markdown-area';
+```javascript
 
-<MarkedArea label="Enter your markdown text" placeholder="Type in here"/>
+
+var MarkedArea = require('react-markdown-area').MarkedArea;
+
+<MarkedArea />
 
 ```
 
@@ -50,7 +36,69 @@ var MarkedArea = require('react-markdown-area');
 	classNames 			|	object		|	classnames used for each element (see below)
 	{...props}          |   object      |   All props are passed into the `textarea` and `preview` to give you more control.
 
-### props.classNames
+
+
+```javascript
+
+import { MarkedInput, MarkedPreview, Markedtoolbar } from 'react-markdown-area';
+
+// Here is a live preview editor
+
+
+export class LiveMarkedArea extends React.Component {
+    constructor(props) {
+    super(props);
+    this.state = {
+      value: props.defaultValue ? props.defaultValue : ''
+    };
+  }
+  static defaultProps = {
+    id: 'mmc-marked-area',
+    label: '',
+    classNames: {
+      root: 'marked-area',
+      header: 'marked-area-header',
+      activeButton: 'marked-area-button active',
+      defaultButton: 'marked-area-button',
+      helpLink: 'marked-area-help-link',
+      textContainer: 'marked-area-text-container',
+      liveDivider: 'marked-area-live-divider'
+    }
+  };
+  handleTextChange = (e) => {
+    this.setState({value: e.target.value});
+  };
+  render() {
+    let {id, label, classNames, placeholder} = this.props;
+    let {value} = this.state;
+    return (
+    <section className={classNames.root}>
+
+      <header className={classNames.header}>
+        <label htmlFor={id}>{label}</label>
+      </header>
+
+        <MarkedInput
+          placeholder={placeholder}
+          classNames={classNames}
+          onChange={this.handleTextChange}
+          value={value} />
+
+        <MarkedPreview classNames={classNames}
+          value={value} />
+
+    </section>
+    );
+  }
+}
+
+
+
+```
+
+
+
+### Skinning
 
 	ClassNames			|	Default		                |	Description
 :-----------------------|:------------------------------|:-----------------
@@ -63,4 +111,32 @@ var MarkedArea = require('react-markdown-area');
 
 ## License
 
-BSD Licensed. Copyright (c) Matt McFarland 2015.
+
+BSD Licensed. Copyright (c) Matt McFarland 2015-2016.
+
+## Changelog:
+
+### v0.2.0:
+
+#### Features:
+ - Implementing TDD
+ - Update Documentation
+ - Improve component composition
+
+#### Fixes:
+ - Webpack and Browserify now both work.
+ - DevOps refactored to build with babel first
+
+#### Breaking Changes:
+
+ - dependencies marked, react, and react-dom have been re-added.
+ - standalone version have been **removed**
+ - marked has been added back as a dependency.
+
+
+### v0.1.0:
+ - Removed dependency inclusion, this dramatically reduced file size, but you will need to install dependencies for this to work.
+
+### v0.0.0 to v0.0.9:
+
+Initial Release.
