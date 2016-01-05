@@ -1,13 +1,13 @@
 {
   "name": "react-markdown-area",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "A React JS Component - enhanced 'textarea' with markdown live preview",
   "engines": {
     "node": ">=4.0.0"
   },
   "main": "lib/index.js",
   "scripts": {
-    "prepublish": "npm test && npm run build",
+    "prepublish": "npm test && npm run build && npm run bundle",
     "test": "npm run lint && mocha $npm_package_options_mocha",
     "lint": "eslint src",
     "less": "lessc src/style/markedarea.less lib/style/markedarea.css",
