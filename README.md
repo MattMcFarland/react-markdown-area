@@ -150,7 +150,6 @@ export class LiveMarkedArea extends React.Component {
 
 ### classNames are required
 
-
 <table>
 <thead><tr><th>ClassNames</th><th>Default</th><th>Description</th></tr></thead>
 <tbody>
@@ -160,27 +159,27 @@ export class LiveMarkedArea extends React.Component {
        <td> The top-level wrapping element. </td>
   </tr>
 
-  <tr> <td> root </td>
+  <tr> <td> header </td>
        <td> marked-area-header  </td>
        <td> Heading element that wraps the controls </td>
   </tr>
 
-  <tr> <td> root </td>
+  <tr> <td> activeButton </td>
        <td> marked-area-button.active </td>
        <td> Used to indicate the active tab </td>
   </tr>
 
-  <tr> <td> root </td>
+  <tr> <td> defaultButton </td>
        <td> marked-area-button </td>
        <td> text displayed in the `label` tag, default is an empty string </td>
   </tr>
 
-  <tr> <td> root </td>
+  <tr> <td> helpLink </td>
        <td> marked-area-help-link </td>
        <td> used for the help link </td>
   </tr>
 
-  <tr> <td> root </td>
+  <tr> <td> textContainer </td>
        <td> marked-area-text-container </td>
        <td> Wraps both preview and textarea </td>
   </tr>
@@ -196,6 +195,12 @@ export class LiveMarkedArea extends React.Component {
 BSD Licensed. Copyright (c) Matt McFarland 2015-2016.
 
 ## Changelog:
+
+### v0.3.3
+
+#### Fixes
+
+ - Fix readme
 
 ### v0.3.2
 
