@@ -1,6 +1,6 @@
 {
   "name": "react-markdown-area",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A React JS Component - enhanced 'textarea' with markdown live preview",
   "engines": {
     "node": ">=4.0.0"
