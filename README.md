@@ -196,20 +196,11 @@ BSD Licensed. Copyright (c) Matt McFarland 2015-2016.
 
 ## Changelog:
 
-### v0.3.3
+### v0.3.1-4
 
 #### Fixes
-
  - Fix readme
-
-### v0.3.2
-
-#### Fixes
  - Fix documentation markup
-
-### v0.3.1
-
-#### Fixes:
  - add missing dependency for dev version.
 
 ### v0.3.0:
