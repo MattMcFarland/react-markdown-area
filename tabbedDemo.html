@@ -17,7 +17,7 @@
   <main class="container" style="overflow:hidden;">
     <div class="row">
       <div class="col-sm-4 col-md-3">
-        <h3>&lt;LiveMarkedArea/></h3>
+        <h3>&lt;MarkedArea/></h3>
         <ul class="nav nav-pills nav-stacked">
           <li>
             <h5>Containers</h5>
@@ -43,29 +43,28 @@
           <div style="margin-top:12px; margin-bottom:16px;">
             <a href="https://nodei.co/npm/react-markdown-area/"><img src="https://nodei.co/npm/react-markdown-area.png?compact=true"></a>
           </div>
-            <p>The <code>LiveMarkedArea</code> gives you a live markdown preview along with your textarea.</p>
-            <p>As you type in the text area it flavores the text immediately.</p>
+            <p>The <code>MarkedArea</code> lets you switch between preview and editor.</p>
+            <p>Click the Edit / Preview buttons to see how it works.</p>
           <div id="root">&nbsp;</div>
-          <script tyle="application/javascript" src="js/index.js"></script>
-        </div>
-        <div class="row">
-          <pre style='font-size:15px;width:100%;overflow:hidden;color:#d1d1d1;background:#000000;'><span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>section</span> className<span style='color:#d2cd86; '>=</span>{classNames<span style='color:#00a800; '>.</span>root}<span style='color:#ff8906; '>></span>
+        <script tyle="application/javascript" src="js/tabbedDemo.js"></script>
+<pre style='padding:1em;color:#d1d1d1;background:#000000;'><span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>section</span> className<span style='color:#d2cd86; '>=</span>{classNames<span style='color:#00a800; '>.</span>root}<span style='color:#ff8906; '>></span>
 
   <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>header</span> className<span style='color:#d2cd86; '>=</span>{classNames<span style='color:#00a800; '>.</span>header}<span style='color:#ff8906; '>></span>
     <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>label</span> htmlFor<span style='color:#d2cd86; '>=</span>{id}<span style='color:#ff8906; '>></span>{label}<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>label</span><span style='color:#ff8906; '>></span>
+    <span style='color:#ff8906; '>&lt;</span><span style='color:#f6c1d0; '>MarkedToolbar</span>
+      isPreview<span style='color:#d2cd86; '>=</span>{isPreview}
+      {...this<span style='color:#00a800; '>.</span>props} <span style='color:#ff8906; '>/></span>
   <span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>header</span><span style='color:#ff8906; '>></span>
 
-<span style='color:#ff8906; '>&lt;</span><span style='color:#f6c1d0; '>MarkedInput</span>
-  classNames<span style='color:#d2cd86; '>=</span>{classNames}
-  onChange<span style='color:#d2cd86; '>=</span>{this<span style='color:#00a800; '>.</span>handleTextChange}
-  value<span style='color:#d2cd86; '>=</span>{value} <span style='color:#ff8906; '>/></span>
+  <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>div</span> className<span style='color:#d2cd86; '>=</span>{classNames<span style='color:#00a800; '>.</span>textContainer}<span style='color:#ff8906; '>></span>
 
-<span style='color:#ff8906; '>&lt;</span><span style='color:#f6c1d0; '>MarkedPreview</span>
-  classNames<span style='color:#d2cd86; '>=</span>{classNames}
-  value<span style='color:#d2cd86; '>=</span>{value} <span style='color:#ff8906; '>/></span>
+    {this<span style='color:#00a800; '>.</span>state<span style='color:#00a800; '>.</span>isPreview ?
+      <span style='color:#ff8906; '>&lt;</span><span style='color:#f6c1d0; '>MarkedPreview</span> value<span style='color:#d2cd86; '>=</span>{value} <span style='color:#ff8906; '>/></span> :
+        <span style='color:#ff8906; '>&lt;</span><span style='color:#f6c1d0; '>MarkedInput</span> onChange<span style='color:#d2cd86; '>=</span>{this<span style='color:#00a800; '>.</span>handleTextChange} value<span style='color:#d2cd86; '>=</span>{value} <span style='color:#ff8906; '>/></span>}
+
+  <span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>div</span><span style='color:#ff8906; '>></span>
 
 <span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>section</span><span style='color:#ff8906; '>></span>
-</pre>
         </div>
       </div>
     </div>
