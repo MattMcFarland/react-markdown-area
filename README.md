@@ -1,10 +1,17 @@
 # React-Markdown-Area
 
-An enhanced textarea control built with and for [React](http://facebook.github.io/react/index.html). Initially built for use in tuts-wanted.
+An enhanced textarea control built with and
+for [React](http://facebook.github.io/react/index.html).
+Initially built for use in tuts-wanted.
 
 ## Installation
 
-The easiest way to use `React-Markdown-Area` is to install it from NPM and include it in your own React build process (using [Browserify](http://browserify.org), etc).
+The easiest way to use `React-Markdown-Area` is to install it from NPM and
+include it in your own React build process
+(using [Browserify](http://browserify.org), etc).
+
+It is made with ES7 but the install file is compiled to ES5 to be compatible
+with more projects.
 
 ```
 npm install react-markdown-area --save
@@ -12,9 +19,14 @@ npm install react-markdown-area --save
 
 ## Basic Usage
 
-React-Markdown-Area generates two buttons for switching between live and edit mode, a textarea, and a preview pane.
-The bundled package comes with a minimal and namespaced amount of CSS.  You can change the classnames of each element in use by modifying the `classNames` prop.
+React-Markdown-Area is made up of components and containers.   Components
+are stateless, and the containers it comes with carry state.  The containers
+are easy to use and great for beginners.  More advanced users will benefit
+from creating their own containers that use the react-markdown-area components.
+You can think of them as **helpers**
 
+
+### MarkedArea
 ```javascript
 
 
@@ -24,23 +36,61 @@ var MarkedArea = require('react-markdown-area').MarkedArea;
 
 ```
 
-### Props
+#### MarkedArea Props
 
-	Property			|	Type		|	Description
-:-----------------------|:--------------|:--------------------------------
-	label       		|	string		|	text displayed in the `label` tag, default is an empty string.
-	id      			|	string		|	unique DOM element ID, default is `mmc-marked-area`
-	onChange     		|	string		|	function called on change, default is an internal function that updates state.
-	defaultValue   		|	string		|	starting value, works similar to defaultValue for textarea
-	value   		    |	string		|	value, works similar to any other form element value. default is `state.value`
-	classNames 			|	object		|	classnames used for each element (see below)
-	{...props}          |   object      |   All props are passed into the `textarea` and `preview` to give you more control.
+react-markdown-area is really a suite of markdown text editing helper
+components and fully working containers, you can also customize `<MarkedArea/>`:
 
+<table>
+<thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead>
+<tbody>
+  <tr><td>  label </td><td>string</td> <td>text displayed in the `label` tag,
+  default is an empty string</td></tr>
+
+  <tr><td>  id  </td><td>string</td> <td>unique DOM element ID, default is
+  `mmc-marked-area`</td></tr>
+
+  <tr><td>  onChange  </td> <td>string</td> <td>tfunction called on change,
+  default is an internal function that updates state</td></tr>
+
+  <tr><td>  classNames  </td> <td>string</td> <td>text displayed in the
+   `label` tag, default is an empty string</td></tr>
+
+  <tr><td> value </td> <td>string</td> <td>value, works similar like any other
+  form element value.</td></tr>
+
+</tbody>
+</table>
+
+> You can also use the `import` statement instead of `require`
+
+### LiveMarkedArea
+
+The helpers components explained later also make up a fully functional
+live markdown editor with preview.  You can use this for inspiration, or
+customize it, or make your own:
+
+```javascript
+ import { LiveMarkedArea } from 'react-markdown-area';
+```
+
+> LiveMarkedArea has similar props to MarkedArea. Not all props are listed
+in this readme, to see them all, take a look at [the source](src/containers).
+
+
+### Building your own with helpers.
+
+Since version 0.2.0, react-markdown-area now lets you compose the
+ text editor in *your own way* - allowing you to have more
+ flexibility with the flow of state.
 
 
 ```javascript
 
-import { MarkedInput, MarkedPreview, Markedtoolbar } from 'react-markdown-area';
+import {
+  MarkedInput,
+  MarkedPreview,
+  Markedtoolbar } from 'react-markdown-area';
 
 // Here is a live preview editor
 
@@ -94,27 +144,70 @@ export class LiveMarkedArea extends React.Component {
 
 
 
+
+
 ```
 
+### classNames are required
 
 
-### Skinning
+<table>
+<thead><tr><th>ClassNames</th><th>Default</th><th>Description</th></tr></thead>
+<tbody>
 
-	ClassNames			|	Default		                |	Description
-:-----------------------|:------------------------------|:-----------------
-	root       		    |   marked-area                 |	The top-level wrapping element.
-	header      		|   marked-area-header          |	The element that wraps the controls
-	activeButton     	|   marked-area-button.active   |	Class used to indicate the active tab
-	defaultButton       |   marked-area-button          |   Class used to indicate the inactive tab
-	helpLink            |   marked-area-help-link       |   Class used for the help link
-    textContainer	 	|   marked-area-text-container  |	Element that wraps the textarea or the preview.
+  <tr> <td> root </td>
+       <td> marked-area </td>
+       <td> The top-level wrapping element. </td>
+  </tr>
+
+  <tr> <td> root </td>
+       <td> marked-area-header  </td>
+       <td> Heading element that wraps the controls </td>
+  </tr>
+
+  <tr> <td> root </td>
+       <td> marked-area-button.active </td>
+       <td> Used to indicate the active tab </td>
+  </tr>
+
+  <tr> <td> root </td>
+       <td> marked-area-button </td>
+       <td> text displayed in the `label` tag, default is an empty string </td>
+  </tr>
+
+  <tr> <td> root </td>
+       <td> marked-area-help-link </td>
+       <td> used for the help link </td>
+  </tr>
+
+  <tr> <td> root </td>
+       <td> marked-area-text-container </td>
+       <td> Wraps both preview and textarea </td>
+  </tr>
+
+</tbody>
+</table>
+
+
+
 
 ## License
-
 
 BSD Licensed. Copyright (c) Matt McFarland 2015-2016.
 
 ## Changelog:
+
+### v0.3.0:
+
+#### Features
+ - Additional documentation
+ - Code refactored to be more extensible
+ - Code refactored to build to ES5 for more compatibility
+
+### v0.2.1:
+
+#### Fixes:
+ - Merge issues
 
 ### v0.2.0:
 
