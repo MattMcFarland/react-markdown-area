@@ -1,6 +1,6 @@
 {
   "name": "react-markdown-area",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "A React JS Component - enhanced 'textarea' with markdown live preview",
   "engines": {
     "node": ">=4.0.0"
@@ -18,7 +18,7 @@
     "cover:lcov": "babel-node node_modules/.bin/isparta cover --root src --report lcovonly node_modules/.bin/_mocha -- $npm_package_options_mocha",
     "bundle:livePreview": "browserify -e demos/index.js -o devserver/build/js/index.js -t babelify",
     "bundle:tabbedDemo": "browserify -e demos/tabbedDemo.js -o devserver/build/js/tabbedDemo.js -t babelify",
-    "bundle": "npm run bundle:livePreview && npm run bundle:tabbedDemo && npm run less:bundle && npm run copy:bundle",
+    "bundle": "rm -rf devserver/build && mkdir devserver/build/js && npm run bundle:livePreview && npm run bundle:tabbedDemo && npm run less:bundle && npm run copy:bundle",
     "watch": "nodemon",
     "devserver": "npm cache clean && node devserver/devserver.js"
   },
