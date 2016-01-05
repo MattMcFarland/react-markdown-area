@@ -196,7 +196,7 @@ BSD Licensed. Copyright (c) Matt McFarland 2015-2016.
 
 ## Changelog:
 
-### v0.3.1-4
+### v0.3.1-5
 
 #### Fixes
  - Fix readme
