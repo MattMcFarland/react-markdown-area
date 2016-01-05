@@ -3,12 +3,12 @@
 
 var React = require('react');
 var render = require('react-dom').render;
-var MarkedArea = require('../lib').MarkedArea;
+var LiveMarkedArea = require('../lib').LiveMarkedArea;
 
 render(React.createElement(
   'div',
   null,
-  React.createElement(MarkedArea, null)
+  React.createElement(LiveMarkedArea, { defaultValue: '# Hello World! `This is markdown` **thank** *you!*' })
 ), document.getElementById('root'));
 
 },{"../lib":8,"react":167,"react-dom":38}],2:[function(require,module,exports){
