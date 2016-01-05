@@ -197,6 +197,12 @@ BSD Licensed. Copyright (c) Matt McFarland 2015-2016.
 
 ## Changelog:
 
+
+### v0.3.1
+
+#### Fixes:
+ - add missing dependency for dev version.
+
 ### v0.3.0:
 
 #### Features
