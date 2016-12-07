@@ -64,13 +64,13 @@ export class MarkedArea extends React.Component {
       </header>
 
         {this.state.isPreview ?
-          <MarkedPreview value={value} /> :
+          <MarkedPreview value={this.state.value} classNames={classNames} /> :
 
             <MarkedInput
               classNames={classNames}
               placeholder={placeholder}
               onChange={this.handleTextChange}
-              value={value} />}
+              value={this.state.value} />}
 
 
     </section>
