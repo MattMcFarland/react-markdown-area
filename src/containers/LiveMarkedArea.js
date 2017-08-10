@@ -34,6 +34,9 @@ export class LiveMarkedArea extends React.Component {
       liveDivider: 'marked-area-live-divider'
     }
   };
+  componentWillReceiveProps(props) {
+      this.setState({value: props.value});
+  };
   handleTextChange = (e) => {
     this.setState({value: e.target.value});
   };
