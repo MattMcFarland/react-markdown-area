@@ -38,7 +38,10 @@ export class LiveMarkedArea extends React.Component {
       this.setState({value: props.value});
   };
   handleTextChange = (e) => {
-    this.setState({value: e.target.value});
+      this.setState({value: e.target.value});
+      if (typeof this.props.onChange === 'function') {
+	  this.props.onChange(e);
+      }      
   };
   render() {
     let {id, label, classNames, placeholder} = this.props;
